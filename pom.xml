@@ -87,9 +87,27 @@
             <version>1.2</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- asm dependency has to be before lint in classpath for plugin to compile, since lint depends on asm 4.0
+         which in turns prevents the plugin to compile, need to ask Hugo to refactor to be able to use asm 4.0 -->
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.ow2.asm</groupId>-->
+            <!--<artifactId>asm</artifactId>-->
+            <!--<version>4.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.android.ddmlib</groupId>
             <artifactId>ddmlib</artifactId>
+            <version>r16</version>
+        </dependency>
+        <dependency>
+            <groupId>com.android.tools.lint</groupId>
+            <artifactId>lint</artifactId>
             <version>r16</version>
         </dependency>
         <dependency>
@@ -123,13 +141,11 @@
           <artifactId>plexus-archiver</artifactId>
           <version>2.0.1</version>
         </dependency>
-
         <dependency>
           <artifactId>plexus-utils</artifactId>
           <groupId>org.codehaus.plexus</groupId>
           <version>3.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.maven.plugin-testing</groupId>
             <artifactId>maven-plugin-testing-harness</artifactId>
@@ -146,24 +162,18 @@
             <artifactId>commons-io</artifactId>
             <version>2.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>asm</groupId>
-            <artifactId>asm</artifactId>
-            <version>3.3.1</version>
-        </dependency>
+
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
-
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
             <version>3.0</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymockclassextension</artifactId>
@@ -177,14 +187,12 @@
             <artifactId>aether-api</artifactId>
             <version>1.12</version>
         </dependency>
-
         <dependency>
             <!-- might be superfluous depending on your use case -->
             <groupId>org.sonatype.aether</groupId>
             <artifactId>aether-util</artifactId>
             <version>1.12</version>
         </dependency>
-
     </dependencies>
     <build>
         <pluginManagement>
