@@ -49,6 +49,7 @@ public class LintMojo extends AbstractMojo {
 
         @Override
         public void report(Context context, Issue issue, Location location, String message, Object data) {
+            // I would like to juse use HtmlReporter . but it is not a public class...
             HtmlReporter reporter
             new //To change body of implemented methods use File | Settings | File Templates.
         }
